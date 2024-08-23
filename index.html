@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حل المسائل الرياضية</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- مكتبات JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.2/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nerdamer/nerdamer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/algebrite@0.0.0/dist/algebrite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/numeric@1.2.6/numeric.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstat@1.9.4/dist/jstat.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.4/dist/tesseract.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/openai@0.0.3/dist/openai.min.js"></script>
+</head>
+<body>
+    <div id="splash-screen" class="splash-screen">
+        <img src="https://cdn.vectorstock.com/i/500p/12/53/student-on-maths-lesson-line-design-vector-39391253.avif" alt="Logo" class="splash-logo animated fadeInDown">
+        <div class="designer-text animated fadeInUp typing-effect">MATHS</div>
+    </div>
+
+    <div id="main-container" class="container hidden">
+        <header class="header-box">
+            <div class="logo-circle">
+                <img src="https://cdn.vectorstock.com/i/500p/26/64/maths-neon-label-vector-26152664.avif" alt="Maths Logo" class="logo">
+            </div>
+            <div class="title-container">
+                <h1>حل المسائل الرياضية</h1>
+                <h2 class="app-name">MATHS</h2>
+            </div>
+            <div class="signature golden-dust">SE:EBRAHEM SOBHY</div>
+            <div class="menu-container">
+                <button class="menu-btn" id="menu-btn">&#9776;</button>
+                <nav class="menu hidden" id="menu">
+                    <ul>
+                        <li><a href="javascript:void(0)" onclick="openHistoryPage()">السجل</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="input-section">
+            <textarea id="math-input" placeholder="أدخل المسألة الرياضية هنا..."></textarea>
+            <div class="image-recognition-section">
+                <div class="file-upload-container">
+                    <input type="file" id="image-upload" accept="image/*" class="file-input"/>
+                    <label for="image-upload" class="file-label">اختر ملف</label>
+                    <button onclick="openCamera()" class="analyze-button">📷</button>
+                </div>
+                <video id="video" class="hidden" autoplay></video>
+                <canvas id="canvas" class="hidden"></canvas>
+                <button id="capture" class="hidden">التقاط</button>
+                <div id="image-result"></div>
+            </div>
+            <div class="button-container">
+                <button class="solve-button" onclick="solveMath()">الحل</button>
+                <button class="next-question-button" onclick="nextQuestion()">السؤال التالي <span class="arrow">→</span></button>
+            </div>
+        </div>
+
+        <div class="output-section">
+            <div class="solution-container">
+                <div class="solution-title">الحل:</div>
+                <div id="solution"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="help-page" class="help-page hidden">
+        <div class="help-content">
+            <span class="close-button" onclick="closeHelpPage()">✖</span>
+            <h2>الأسئلة والأجوبة</h2>
+            <div id="help-content">
+                <p>س: كيف يمكنني حل المسائل الرياضية؟</p>
+                <p>ج: يمكنك إدخال المسألة في الصندوق النصي ثم الضغط على زر "الحل" للحصول على الحل.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="history-page" class="history-page hidden">
+        <div class="history-content">
+            <span class="close-button" onclick="closeHistoryPage()">✖</span>
+            <h2>السجل</h2>
+            <div id="history-content">
+                <!-- سيتم ملء هذه المنطقة بالأسئلة والحلول -->
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-circles">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>

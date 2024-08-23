@@ -1,0 +1,531 @@
+/* إعدادات عامة لتطبيقك */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+.header-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 2px solid #000;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.logo-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #444 0%, #000 100%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.logo-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.logo {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* إعدادات زر الثلاث شرط (الهامبرغر) */
+.menu-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.menu-btn {
+    background: #333; /* لون داكن للزر يتماشى مع خلفية التطبيق */
+    border: none;
+    color: #ffffff; /* لون نص الزر */
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* ظل داكن */
+    transition: background 0.3s, transform 0.3s;
+}
+
+.menu-btn:hover {
+    background: #444; /* لون تفاعلي عند التمرير */
+    transform: scale(1.1);
+}
+
+/* إعدادات القائمة المنبثقة */
+.menu {
+    display: none;
+    position: absolute;
+    top: 50px; /* المسافة من الزر */
+    right: 10px;
+    width: 200px;
+    background: #333; /* لون خلفية القائمة */
+    color: #ffffff; /* لون نص القائمة */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* ظل داكن */
+    padding: 10px;
+    transition: opacity 0.3s, transform 0.3s ease;
+    transform: translateY(-20px);
+    opacity: 0;
+    z-index: 15; /* تأكد من أن القائمة فوق باقي العناصر ولكن تحت الزر */
+}
+
+.menu.show {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* إعدادات القائمة الداخلية */
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    border-bottom: 1px solid #444; /* لون الحدود يتماشى مع الخلفية الداكنة */
+}
+
+.menu ul li:last-child {
+    border-bottom: none;
+}
+
+.menu ul li a {
+    color: #ffffff; /* لون نص الروابط */
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+.menu ul li a:hover {
+    background: #444; /* لون الخلفية عند التمرير */
+    border-radius: 4px;
+}
+
+.title-container {
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.app-name {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #6200ea;
+}
+
+.signature {
+    background-color: #6200ea;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.signature.golden-dust {
+    background: linear-gradient(to right, #d4af37, #d4af37 20%, rgba(0, 0, 0, 0) 20%);
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -500px 0;
+    }
+    100% {
+        background-position: 500px 0;
+    }
+}
+
+.input-section, .output-section {
+    margin: 20px 0;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    background-color: #6200ea;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.solve-button {
+    background-color: #6200ea;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    width: 48%;
+    border-radius: 5px;
+}
+
+.next-question-button {
+    background-color: #3700b3;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    width: 48%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.arrow {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    transition: margin-left 0.3s;
+}
+
+.next-question-button:hover .arrow {
+    margin-left: 20px;
+}
+
+.solution-container {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    height: 150px;
+    overflow-y: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.solution-title {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: absolute;
+    top: 20px;
+}
+
+.help-page {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.help-content {
+    position: relative;
+    margin: 20px;
+    padding: 20px;
+    background: #333;
+    border-radius: 10px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.floating-circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 6s infinite ease-in-out;
+}
+
+.circle1 {
+    width: 200px;
+    height: 200px;
+    background: rgba(98, 0, 234, 0.6);
+    top: 10%;
+    left: 10%;
+}
+
+.circle2 {
+    width: 150px;
+    height: 150px;
+    background: rgba(98, 0, 234, 0.6);
+    top: 20%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        transform: scale(1.2) translateY(-20px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.image-recognition-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.file-upload-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid #6200ea;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #222;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    background-color: #6200ea;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.file-label:hover {
+    background-color: #3700b3;
+}
+
+.analyze-button {
+    background-color: #6200ea;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+#image-result {
+    margin-top: 10px;
+    color: #fff;
+}
+
+.splash-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 1000;
+}
+
+.splash-logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.designer-text {
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid;
+    width: 20ch;
+    animation: typing 2s steps(20) 1s 1 normal both, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #fff }
+}
+
+/* تحسين صفحة الإعدادات */
+.settings-page {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.settings-page h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.settings-section {
+    margin-bottom: 20px;
+}
+
+.settings-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+.settings-section select,
+.settings-section textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.settings-button {
+    background-color: #6200ea;
+    padding: 15px 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+.settings-button:hover {
+    background-color: #3700b3;
+}
+
+/* تحسين صفحة السجل */
+.history-page {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.history-page h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.history-content {
+    color: #fff;
+    overflow-y: auto;
+    max-height: 300px;
+    padding: 10px;
+    background: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
